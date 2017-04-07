@@ -107,10 +107,10 @@ NumericAnswer "numeric answer"
       high: a.high
     };
   }
-  / "#" _? a:NumericMultipleChoiceAnswer+ {
+  / "#" a:(_? NumericMultipleChoiceAnswer)+ {
     return {
       type: "NMC",
-      choices: a
+      choices: a.map(function(e) { return e[1]; })
     };
   }
 
