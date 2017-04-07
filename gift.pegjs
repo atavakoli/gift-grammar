@@ -27,7 +27,7 @@
 }
 
 QuestionList
-  = __* first:Question rest:(__ __+ Question)* ___* {
+  = __* first:Question rest:(__ __+ Question)* __* {
     var questions = [first].concat(rest.map(function(e) {
       return e[2];
     }));
@@ -151,26 +151,26 @@ AnswerText "answer text"
   = (!"->" [^~=#}])+ { return cleanupText(text()); }
 
 QuestionText "question text"
-  = (!("{" / NewLine [ \t]* NewLine) .)+ { return cleanupText(text()); }
+  = (!("{" / NewLine HorizontalWhitespace* NewLine) .)+ { return cleanupText(text()); }
 
 TitleText "title text"
   = (!"::" .)+ { return cleanupText(text()); }
 
 Comment "comment"
-  = "//" (!NewLine .)* NewLine
+  = "//" (!(NewLine / EOF) .)* (NewLine / EOF)
 
 NewLine "newline"
   = "\r"? "\n"
+
+EOF "end of input"
+  = !.
+
+HorizontalWhitespace "whitespace"
+  = [ \t]
 
 _ "whitespace"
   = [ \t\r\n]+
 
 __
-  = [ \t]* NewLine
-  / [ \t]* Comment
-
-___
-  = [ \t]* NewLine
-  / [ \t]* Comment
-  / [ \t]* "//" .*
-  
+  = HorizontalWhitespace* NewLine
+  / HorizontalWhitespace* Comment
