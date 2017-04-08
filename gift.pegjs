@@ -55,11 +55,15 @@ EndAnswer
   / FillInAnswer
 
 BooleanAnswer "boolean answer"
-  = answer:BooleanToken {
-    return {
+  = answer:BooleanToken feedback:(_? "#" AnswerText)? {
+    var result = {
       type: "TF",
       correct: answer
     };
+    if (feedback) {
+      result.feedback = feedback[2];
+    }
+    return result;
   }
 
 BooleanToken "boolean"
