@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="GiftEditor">
+  <head>
+    <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="vendor/pegjs/peg-0.10.0.min.js"></script>
+
+    <script src="main.js"></script>
+    <script src="services.js"></script>
+    <script src="directives.js"></script>
+    <script src="controllers.js"></script>
+
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+
+    <style>
+      textarea {
+        font-family: "Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+      }
+
+      .bordered-inline {
+        display: inline-block;
+        padding: 3px;
+        margin: 3px;
+        border: solid #ddd 1px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body ng-controller="EditorCtrl">
+    <div class="container">
+      <h2>
+        GIFT
+      </h2>
+      <div class="row">
+        <div class="col-md-12">
+          <textarea class="form-control" rows="24"
+                    ng-trim="false"
+                    ng-model="state.input"
+                    ng-model-options="{ debounce: 200 }"></textarea>
+        </div>
+      </div>
+
+      <h2 ng-if="state.error">
+        Error
+      </h2>
+      <div class="row" ng-if="state.error">
+        <div class="col-md-12">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              {{state.error}}
+            </div>
+            <div class="panel-body">
+              <pre>{{state.errorLine}}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 ng-if="state.questions.length">
+        Preview
+      </h2>
+      <div class="row" ng-if="state.questions.length">
+        <div class="col-md-12">
+          <div ng-repeat="question in state.questions">
+            <tf-question ng-if="question.type === 'TF'" ng-model="question">
+            </tf-question>
+
+            <mc-question ng-if="question.type === 'MC'" ng-model="question">
+            </mc-question>
+
+            <n-question ng-if="question.type === 'N'" ng-model="question">
+            </n-question>
+
+            <nmc-question ng-if="question.type === 'NMC'" ng-model="question">
+            </nmc-question>
+
+            <m-question ng-if="question.type === 'M'" ng-model="question">
+            </m-question>
+
+            <i-question ng-if="question.type === 'I'" ng-model="question">
+            </i-question>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

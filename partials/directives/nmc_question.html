@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+  <div class="panel-heading" ng-if="ngModel.title">
+    {{ngModel.title}}
+  </div>
+
+  <div class="panel-body" ng-if="!ngModel.suffix">
+    <p>{{ngModel.question}}</p>
+    <ul>
+      <li ng-repeat="choice in ngModel.answer.choices">
+        <span ng-if="choice.low !== choice.high">
+          {{choice.low}} to {{choice.high}}
+        </span>
+        <span ng-if="choice.low === choice.high">
+          {{choice.low}}
+        </span>
+        <small class="text-muted" ng-if="choice.weight">
+          ({{choice.weight}}%)
+        </small>
+        <span class="glyphicon glyphicon-question-sign" ng-if="choice.feedback"
+              uib-tooltip="{{choice.feedback}}">
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="panel-body" ng-if="ngModel.suffix">
+    <span>{{ngModel.question}}</span>
+    <ul class="bordered-inline list-inline">
+      <li ng-repeat="choice in ngModel.answer.choices">
+        <span ng-if="choice.low !== choice.high">
+          {{choice.low}} to {{choice.high}}
+        </span>
+        <span ng-if="choice.low === choice.high">
+          {{choice.low}}
+        </span>
+        <small class="text-muted" ng-if="choice.weight">
+          ({{choice.weight}}%)
+        </small>
+        <span class="glyphicon glyphicon-question-sign" ng-if="choice.feedback"
+              uib-tooltip="{{choice.feedback}}">
+        </span>
+      </li>
+    </ul>
+    <span>{{ngModel.suffix}}</span>
+  </div>
+</div>

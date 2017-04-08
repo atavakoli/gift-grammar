@@ -1,0 +1,48 @@
+<div class="panel panel-default">
+  <div class="panel-header" ng-if="ngModel.title">
+    {{ngModel.title}}
+  </div>
+
+  <div class="panel-body" ng-if="!ngModel.suffix">
+    <p>{{ngModel.question}}</p>
+
+    <label class="radio-inline">
+      <input type="radio" disabled ng-value="true"
+             ng-model="ngModel.answer.correct">
+      True
+    </label>
+    <label class="radio-inline">
+      <input type="radio" disabled ng-value="false"
+             ng-model="ngModel.answer.correct">
+      False
+    </label>
+    <span class="glyphicon glyphicon-question-sign"
+          ng-if="ngModel.answer.feedback"
+          uib-tooltip="{{ngModel.answer.feedback}}">
+    </span>
+  </div>
+
+  <div class="panel-body" ng-if="ngModel.suffix">
+    <span>{{ngModel.question}}</span>
+
+    <span class="bordered-inline">
+      <label class="radio-inline">
+        <input type="radio" disabled ng-value="true"
+               ng-model="ngModel.answer.correct">
+        True
+      </label>
+      <label class="radio-inline">
+        <input type="radio" disabled ng-value="false"
+               ng-model="ngModel.answer.correct">
+        False
+      </label>
+      <span class="glyphicon glyphicon-question-sign"
+            ng-if="ngModel.answer.feedback"
+            uib-tooltip="{{ngModel.answer.feedback}}">
+      </span>
+    </span>
+
+    <span>{{ngModel.suffix}}</span>
+  </div>
+
+</div>

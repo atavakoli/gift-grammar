@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading" ng-if="ngModel.title">
+    {{ngModel.title}}
+  </div>
+
+  <div class="panel-body">
+    <p>{{ngModel.question}}</p>
+    <ul>
+      <li ng-repeat="pair in ngModel.answer.pairs">
+        <span class="bordered-inline">
+          {{pair.left}}
+        </span>
+
+        <span class="glyphicon glyphicon-arrow-right"></span>
+
+        <span class="bordered-inline">
+          {{pair.right}}
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>

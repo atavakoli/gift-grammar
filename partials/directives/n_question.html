@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <div class="panel-heading" ng-if="ngModel.title">
+    {{ngModel.title}}
+  </div>
+
+  <div class="panel-body" ng-if="!ngModel.suffix">
+    <p>{{ngModel.question}}</p>
+    <p class="bordered-inline" ng-if="ngModel.answer.low !== ngModel.answer.high">
+      {{ngModel.answer.low}} to {{ngModel.answer.high}}
+    </p>
+    <p class="bordered-inline" ng-if="ngModel.answer.low === ngModel.answer.high">
+      {{ngModel.answer.low}}
+    </p>
+  </div>
+
+  <div class="panel-body" ng-if="ngModel.suffix">
+    <span>{{ngModel.question}}</span>
+    <span class="bordered-inline" ng-if="ngModel.answer.low !== ngModel.answer.high">
+      {{ngModel.answer.low}} to {{ngModel.answer.high}}
+    </span>
+    <span class="bordered-inline" ng-if="ngModel.answer.low === ngModel.answer.high">
+      {{ngModel.answer.low}}
+    </span>
+    <span>{{ngModel.suffix}}</span>
+  </div>
+</div>

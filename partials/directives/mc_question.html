@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+  <div class="panel-heading" ng-if="ngModel.title">
+    {{ngModel.title}}
+  </div>
+
+  <div class="panel-body" ng-if="!ngModel.suffix">
+    <p>{{ngModel.question}}</p>
+
+    <label class="checkbox-inline" ng-repeat="choice in ngModel.answer.choices">
+           
+      <input type="checkbox" disabled ng-model="choice.correct">
+      {{choice.text}}
+      <small class="text-muted" ng-if="choice.weight">
+        ({{choice.weight}}%)
+      </small>
+      <span class="glyphicon glyphicon-question-sign" ng-if="choice.feedback"
+            uib-tooltip="{{choice.feedback}}" tooltip-append-to-body="true">
+      </span>
+    </label>
+  </div>
+
+  <div class="panel-body" ng-if="ngModel.suffix">
+    <span>{{ngModel.question}}</span>
+
+    <span class="bordered-inline">
+      <label class="checkbox-inline" ng-repeat="choice in ngModel.answer.choices">
+        <input type="checkbox" disabled ng-model="choice.correct">
+        {{choice.text}}
+        <small class="text-muted" ng-if="choice.weight">
+          ({{choice.weight}}%)
+        </small>
+        <span class="glyphicon glyphicon-question-sign" ng-if="choice.feedback"
+              uib-tooltip="{{choice.feedback}}" tooltip-append-to-body="true">
+        </span>
+      </label>
+    </span>
+
+    <span>{{ngModel.suffix}}</span>
+  </div>
+</div>

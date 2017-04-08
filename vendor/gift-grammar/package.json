@@ -1,0 +1,18 @@
+{
+  "name": "gift-grammar",
+  "description": "A PegJS grammar for the Moodles GIFT quiz format",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atavakoli/gift-grammar.git"
+  },
+  "keywords": [
+    "pegjs",
+    "grammar",
+    "gift",
+    "moodles"
+  ],
+  "author": "Ali Tavakoli",
+  "license": "MIT",
+  "homepage": "https://github.com/atavakoli/gift-grammar#readme"
+}
