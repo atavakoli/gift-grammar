@@ -1,7 +1,7 @@
 {
   "name": "gift-grammar",
   "description": "A PegJS grammar for the Moodles GIFT quiz format",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/atavakoli/gift-grammar.git"

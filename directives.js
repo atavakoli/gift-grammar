@@ -66,4 +66,15 @@ angular.module('GiftEditor')
   };
 })
 
+.directive('eQuestion', function() {
+  return {
+    templateUrl: 'partials/directives/e_question.html',
+    restrict: 'E',
+    require: 'ngModel',
+    scope: {
+      ngModel: '<'
+    }
+  };
+})
+
 ;

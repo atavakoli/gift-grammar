@@ -41,6 +41,9 @@ Question
   / t:("::" TitleText "::")? __? q:QuestionText _? "{" _? a:EndAnswer _? "}" {
     return buildQuestion(a.type, t ? t[1] : null, q, a);
   }
+  / t:("::" TitleText "::")? __? q:QuestionText _? "{" _? "}" {
+    return buildQuestion("E", t ? t[1] : null, q);
+  }
   / t:("::" TitleText "::")? __? q:QuestionText {
     return buildQuestion("I", t ? t[1] : null, q);
   }
