@@ -64,27 +64,25 @@
       <h2 ng-if="state.questions.length">
         Preview
       </h2>
-      <div class="row" ng-if="state.questions.length">
+      <div class="row" ng-repeat="question in state.questions">
         <div class="col-md-12">
-          <div ng-repeat="question in state.questions">
-            <tf-question ng-if="question.type === 'TF'" ng-model="question">
-            </tf-question>
+          <tf-question ng-if="question.type === 'TF'" ng-model="question">
+          </tf-question>
 
-            <mc-question ng-if="question.type === 'MC'" ng-model="question">
-            </mc-question>
+          <mc-question ng-if="question.type === 'MC'" ng-model="question">
+          </mc-question>
 
-            <n-question ng-if="question.type === 'N'" ng-model="question">
-            </n-question>
+          <n-question ng-if="question.type === 'N'" ng-model="question">
+          </n-question>
 
-            <nmc-question ng-if="question.type === 'NMC'" ng-model="question">
-            </nmc-question>
+          <nmc-question ng-if="question.type === 'NMC'" ng-model="question">
+          </nmc-question>
 
-            <m-question ng-if="question.type === 'M'" ng-model="question">
-            </m-question>
+          <m-question ng-if="question.type === 'M'" ng-model="question">
+          </m-question>
 
-            <i-question ng-if="question.type === 'I'" ng-model="question">
-            </i-question>
-          </div>
+          <i-question ng-if="question.type === 'I'" ng-model="question">
+          </i-question>
         </div>
       </div>
     </div>
