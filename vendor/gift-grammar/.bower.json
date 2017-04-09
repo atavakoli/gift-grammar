@@ -24,12 +24,12 @@
     "test",
     "tests"
   ],
-  "version": "0.1.4",
-  "_release": "0.1.4",
+  "version": "0.1.5",
+  "_release": "0.1.5",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.4",
-    "commit": "82a2e8f3f40285f9b9b53923a3b4e395b43c271b"
+    "tag": "0.1.5",
+    "commit": "5538010c1bcfdb2f396b25630920362dc41de938"
   },
   "_source": "https://github.com/atavakoli/gift-grammar.git",
   "_target": "~0.1",

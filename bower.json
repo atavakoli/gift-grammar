@@ -1,0 +1,16 @@
+{
+  "name": "gift-grammar-gh-pages",
+  "description": "The GitHub Pages of gift-grammar",
+  "authors": [
+    "Ali Tavakoli"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "gift-grammar": "~0.1",
+    "angular": "~1.6",
+    "angular-bootstrap": "~2.5",
+    "bootstrap": "~3.3",
+    "pegjs": "~0.10"
+  }
+}
