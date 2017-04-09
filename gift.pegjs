@@ -27,7 +27,7 @@
 }
 
 QuestionList
-  = __* first:Question rest:(__ __+ Question)* __* {
+  = _? __* first:Question rest:(__ __+ Question)* __* {
     var questions = [first].concat(rest.map(function(e) {
       return e[2];
     }));
@@ -35,13 +35,13 @@ QuestionList
   }
 
 Question
-  = t:("::" TitleText "::")? __? q:QuestionText _? "{" _? a:FillInAnswer _? "}" s:QuestionText {
+  = t:("::" TitleText "::")? __? q:QuestionText "{" _? a:FillInAnswer _? "}" s:QuestionText {
     return buildQuestion(a.type, t ? t[1] : null, q, a, s);
   }
-  / t:("::" TitleText "::")? __? q:QuestionText _? "{" _? a:EndAnswer _? "}" {
+  / t:("::" TitleText "::")? __? q:QuestionText "{" _? a:EndAnswer _? "}" {
     return buildQuestion(a.type, t ? t[1] : null, q, a);
   }
-  / t:("::" TitleText "::")? __? q:QuestionText _? "{" _? "}" {
+  / t:("::" TitleText "::")? __? q:QuestionText "{" _? "}" {
     return buildQuestion("E", t ? t[1] : null, q);
   }
   / t:("::" TitleText "::")? __? q:QuestionText {
@@ -175,5 +175,5 @@ _ "whitespace"
   = [ \t\r\n]+
 
 __
-  = HorizontalWhitespace* NewLine
-  / HorizontalWhitespace* Comment
+  = HorizontalWhitespace* NewLine HorizontalWhitespace*
+  / HorizontalWhitespace* Comment HorizontalWhitespace*
