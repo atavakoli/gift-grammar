@@ -66,26 +66,7 @@
       </h2>
       <div class="row" ng-repeat="question in state.questions">
         <div class="col-md-12">
-          <tf-question ng-if="question.type === 'TF'" ng-model="question">
-          </tf-question>
-
-          <mc-question ng-if="question.type === 'MC'" ng-model="question">
-          </mc-question>
-
-          <n-question ng-if="question.type === 'N'" ng-model="question">
-          </n-question>
-
-          <nmc-question ng-if="question.type === 'NMC'" ng-model="question">
-          </nmc-question>
-
-          <m-question ng-if="question.type === 'M'" ng-model="question">
-          </m-question>
-
-          <i-question ng-if="question.type === 'I'" ng-model="question">
-          </i-question>
-
-          <e-question ng-if="question.type === 'E'" ng-model="question">
-          </e-question>
+          <question ng-model="question"></question>
         </div>
       </div>
     </div>

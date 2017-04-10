@@ -1,5 +1,16 @@
 angular.module('GiftEditor')
 
+.directive('question', function() {
+  return {
+    templateUrl: 'partials/directives/question.html',
+    restrict: 'E',
+    require: 'ngModel',
+    scope: {
+      ngModel: '<'
+    }
+  };
+})
+
 .directive('tfQuestion', function() {
   return {
     templateUrl: 'partials/directives/tf_question.html',
